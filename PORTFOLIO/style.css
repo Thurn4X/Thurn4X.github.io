@@ -8,6 +8,10 @@
     box-sizing: border-box;
 
 }
+
+::-webkit-scrollbar {
+    width: 0;
+}
 body{
     font-family: "poppins", sans-serif;
     overflow-x: hidden;
@@ -161,11 +165,12 @@ section{
     left: calc(50% + 10px);
     z-index: 1;
     
+    
 }
 
 .bg-img2{
     position: absolute;
-    width: 100vw;
+    width: 150vw;
     height: 150vh;
     top: 50%;
     left: 50%;
@@ -225,7 +230,7 @@ section{
 
 .frontcloud{
     position: absolute;
-    width: 1600px;
+    width: 110vw;
     top: calc(50% + 200px);
     left: calc(50% + 20px);
     z-index: 6;
@@ -273,6 +278,7 @@ section{
 
 
 /* Add this style for the sea background */
+/* Add this style for the sea background */
 .sea-background {
     position: fixed;
     top: 0;
@@ -285,10 +291,21 @@ section{
 
 /* CSS */
 .scrollable-container {
-    height: 800vh;
+    display: flex;
+    flex-direction: column; /* Make it a column layout */
+    min-height: 100vh; /* Ensure it takes at least the viewport height */
     overflow: hidden;
     position: relative;
 }
+
+.scrollable-content {
+    flex: 1; /* Allow content to expand and fill remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Rest of your styles remain the same */
+
 
 .scrollable-spacer {
     position: absolute;
@@ -310,7 +327,9 @@ section{
     align-items: center;
     font-size: 3rem;
     color: white;
-    background-color: red;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    /*background-color: red;*/
 }
 
 .left {
@@ -322,6 +341,7 @@ section{
 }
 
 .section-content span {
+    font-size: 30px;
     margin-top: 100px; /* Space between each span */
     margin-bottom: 100px; /* Space between each span and the end of the section */
     padding-top: 0;
@@ -347,14 +367,126 @@ section{
     height: 100px;
     display: flex;
     justify-content: space-between; /* Add horizontal space between logos */
-    margin-left: 30px; /* Add some vertical space between logos and the text */
+    left: 50%;
+    margin-right: 30px;
 
     
 }
 
 .logos:nth-child(2){
-    transition-delay: 200ms;
+    transition-delay: 100ms;
 }
 .logos:nth-child(3){
-    transition-delay: 400ms;
+    transition-delay: 200ms;
 }
+
+.cote{
+    left: 0;
+}
+
+.more {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 100vh; /* Ensure the section takes up the full viewport height */
+    text-align: center; /* Center the text */
+}
+
+
+.particle {
+    position: absolute;
+    filter: blur(5px);
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: fadeOut 2s linear forwards;
+    z-index: 2000;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .index{
+    background-color: #FFFAFA;
+    color: #A5F2F3;
+    margin-top: 3rem;
+  }
+
+  .index-section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 75%, #FFFAFA 100%);
+    z-index: 998;
+}
+
+.index-section2::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, transparent 0%, #FFFAFA 100%);
+}
+
+.desc{
+    pointer-events: auto;
+    z-index: 3;
+    left: 50%;
+    font-size: 2rem;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+
+
+
+.index h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    font-size: 8rem;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Adjust the values as needed */
+
+}
+
+.desc p{
+    width: 75%;
+    margin: 0 auto;
+
+    margin-top: 10%;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7); /* Adjust the values as needed */
+
+}
+
+/* CSS for the fade-in animation */
+.hiddenpop {
+    opacity: 0;
+    filter: blur(10px);
+    transition: all 1s ease;
+}
+
+.hiddenpop.show {
+    opacity: 1;
+    filter: blur(0);
+}
+
+
+.mainindex{
+    background-color: #FFFAFA;
+}
+
+
+
+  
