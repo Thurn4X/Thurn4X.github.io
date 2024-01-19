@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap');
+
+*, 
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+body{
+    font-family: "poppins", sans-serif;
+    overflow-x: hidden;
+  }
+
+
+  
+.logo{
+    width: 50px;
+}
+
+header{
+    position: absolute;
+    z-index: 999;
+    padding: 0.9rem 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header nav{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: white;
+    display: block;
+    margin: auto;
+    transition: 0.8s;
+  }
+  
+header nav ul li:hover::after{
+    width: 100%;
+  }
+
+header ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+
+}
+
+header ul a{
+    text-decoration: none;
+    color: white;
+    padding: 0 1.5rem;
+    text-transform: uppercase;
+    font-weight: 1000;
+}
+.hamburger{
+    padding-left: 1.5rem;
+}
+.hamburger a{
+    padding: 0;
+    width: 37px;
+    height: 37px;
+    display: flex;
+    border-radius: 50%;
+    background-color: rgba(115, 115, 115, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger .bar{
+    position: relative;
+    width: 52%;
+    height: 1.3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.hamburger .bar::before, .hamburger .bar::after{
+    content:"";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 2px;
+
+}
+
+.hamburger .bar::before{
+    top: -4.5px;
+}
+
+.hamburger .bar::after{
+    top: 4.5px;
+}
+
+main .slideuno{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    
+}
+
+section{
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+}
+
+.parallax{
+    pointer-events: none;
+    transition: 0.45s cubic-bezier(.2,.49,.32,.99);
+
+
+}
+.slideuno {
+    height: 150vh;
+    width: 100vw;
+    position: relative;
+
+    overflow: hidden;
+    
+}
+
+.slide{
+    inset: 0;
+    opacity: 0;
+
+}
+
+.slide[data-active]{
+    opacity: 1;
+}
+
+
+.carousel-button.next{
+    right: 1rem;
+}
+.bg-img{
+    position: absolute;
+    width: 150%;
+    height: 3000px;
+    top: calc(50% - 390px);
+    left: calc(50% + 10px);
+    z-index: 1;
+    
+    
+}
+
+.bg-img2{
+    position: absolute;
+    width: 150vw;
+    height: 150vh;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    
+}
+
+
+
+.text{
+    position: absolute;
+    pointer-events: auto;
+    z-index: 3;
+    top: calc(50% - 130px);
+    left: 50%;
+    transform: translate(-50% , -50%);
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.text h2{
+    font-size: 6.5rem;
+    font-weight: 100;
+    line-height: 0.88;
+}
+
+.text h1{
+    font-weight: 800;
+    font-size: 8rem;
+    line-height: 0.88;
+}
+
+.leftcloud{
+    position: absolute;
+    width: 1700px;
+    top: calc(50%);
+    left: 0;
+    z-index: 3;
+}
+
+.rightcloud{
+    position: absolute;
+    width: 1500px;
+    top: calc(50% );
+    left: calc(50% + 600px);
+    z-index: 4;
+}
+
+.rightlilcloud{
+    position: absolute;
+    width: 800px;
+    top: calc(50% - 70px);
+    left: calc(50% + 40px);
+    z-index: 5;
+}
+
+.frontcloud{
+    position: absolute;
+    width: 110vw;
+    top: calc(50% + 200px);
+    left: calc(50% + 20px);
+    z-index: 6;
+}
+
+.vignette{
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 65%, rgba(0,0,0,0.7));
+}
+
+.download_button{
+    z-index: 1000;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 30px 60px;
+    font-size: large;
+    border-radius: 8px;
+
+    background: transparent;
+}
+
+.download_button:hover{
+    box-shadow: 0 0 20px 0 rgba(255,255,255,1);
+    transition: 0.2s;
+}
+
+.download_button:not(:hover){
+    background: transparent;
+    transition: 0.2s;
+}
+
+
+
+
+
+/* Add this style for the sea background */
+/* Add this style for the sea background */
+.sea-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #007bff; /* Electric blue background color */
+    transition: background-color 0.5s ease; /* Transition for background color change */
+}
+
+/* CSS */
+.scrollable-container {
+    display: flex;
+    flex-direction: column; /* Make it a column layout */
+    min-height: 100vh; /* Ensure it takes at least the viewport height */
+    overflow: hidden;
+    position: relative;
+}
+
+.scrollable-content {
+    flex: 1; /* Allow content to expand and fill remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Rest of your styles remain the same */
+
+
+.scrollable-spacer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows mouse events to pass through */
+    
+}
+
+.section {
+    position: relative;
+    width: 70vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    /*background-color: red;*/
+}
+
+.left {
+    transform: translateX(10%);
+}
+
+.right {
+    transform: translateX(40%);
+}
+
+.section-content span {
+    font-size: 30px;
+    margin-top: 100px; /* Space between each span */
+    margin-bottom: 100px; /* Space between each span and the end of the section */
+    padding-top: 0;
+    padding-bottom: 0;
+    display: block;
+}
+
+.hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.logos{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between; /* Add horizontal space between logos */
+    left: 50%;
+    margin-right: 30px;
+
+    
+}
+
+.logos:nth-child(2){
+    transition-delay: 100ms;
+}
+.logos:nth-child(3){
+    transition-delay: 200ms;
+}
+
+.cote{
+    left: 0;
+}
+
+.more {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 100vh; /* Ensure the section takes up the full viewport height */
+    text-align: center; /* Center the text */
+}
+
+
+.particle {
+    position: absolute;
+    filter: blur(5px);
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: fadeOut 2s linear forwards;
+    z-index: 2000;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .index{
+    background-color: #FFFAFA;
+    color: #A5F2F3;
+    margin-top: 3rem;
+  }
+
+  .index-section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 75%, #FFFAFA 100%);
+    z-index: 998;
+}
+
+.index-section2::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, transparent 0%, #FFFAFA 100%);
+}
+
+.desc{
+    pointer-events: auto;
+    z-index: 3;
+    left: 50%;
+    font-size: 2rem;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+
+
+
+.index h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    font-size: 8rem;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Adjust the values as needed */
+
+}
+
+.desc p{
+    width: 75%;
+    margin: 0 auto;
+
+    margin-top: 10%;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7); /* Adjust the values as needed */
+
+}
+
+/* CSS for the fade-in animation */
+.hiddenpop {
+    opacity: 0;
+    filter: blur(10px);
+    transition: all 1s ease;
+}
+
+.hiddenpop.show {
+    opacity: 1;
+    filter: blur(0);
+}
+
+
+.mainindex{
+    background-color: #FFFAFA;
+}
+
+
+
+  
