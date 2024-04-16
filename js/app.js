@@ -67,33 +67,168 @@ timeline.from(
     },"<0.1"
 )
 
-// Create an IntersectionObserver for elements with the "hidden" class
-const observerHidden = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
-        }
+document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            } else {
+                entry.target.classList.remove('is-visible'); // Pour masquer à nouveau l'élément lorsqu'il sort de la vue
+            }
+        });
+    }, {
+        root: null, // Observing for the viewport
+        threshold: 0.3 // Déclenche quand 10% de l'élément est visible
     });
-}, { rootMargin: "0px 0px -100px 0px" }); // Adjust the negative bottom margin as needed
 
-const hiddenElements = document.querySelectorAll('.hidden');
-hiddenElements.forEach((el) => observerHidden.observe(el));
+    const section = document.querySelector('.about-me-section');
+    observer.observe(section);
+});
 
-// Create a separate IntersectionObserver for elements with the "hiddenpop" class
-const observerHiddenPop = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
-        }
+// js section 2
+
+document.addEventListener('DOMContentLoaded', function () {
+    const navItems = document.querySelectorAll('.project-nav li');
+    const projectDetails = document.querySelectorAll('.project');
+
+    // Function to deactivate all projects
+    function deactivateProjects() {
+        projectDetails.forEach(project => {
+            project.classList.remove('active');
+        });
+    }
+
+    // Function to activate a project
+    function activateProject(project) {
+        // Ensure all projects are not active
+        deactivateProjects();
+
+        // Delay the display of the project to allow for fade-out
+        setTimeout(() => {
+            project.classList.add('active');
+        }, 500); // Matches the transition time
+    }
+
+    // Attach click events to all navigation items
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Find the target project
+            const targetId = item.getAttribute('data-target');
+            const targetProject = document.getElementById(targetId);
+
+            // Activate the target project
+            activateProject(targetProject);
+
+            // Manage active state for nav items
+            navItems.forEach(nav => {
+                nav.classList.remove('active');
+            });
+            item.classList.add('active');
+        });
+    });
+
+    // Initially set the first project active without delay
+    if (projectDetails.length > 0) {
+        projectDetails[0].classList.add('active');
+    }
+    if (navItems.length > 0) {
+        navItems[0].classList.add('active');
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const navItems = document.querySelectorAll('.project-nav li');
+    const projectDetails = document.querySelectorAll('.project');
+
+    // Function to hide all projects and remove 'show' from logos
+    function hideAllProjects() {
+        projectDetails.forEach(project => {
+            project.style.display = 'none';
+            const logos = project.querySelectorAll('.skill-logo');
+            logos.forEach(logo => {
+                logo.classList.remove('show');
+            });
+        });
+    }
+
+    // Function to show a specific project and animate logos
+    function showProject(project) {
+        project.style.display = 'block';
+        const logos = project.querySelectorAll('.skill-logo');
+        logos.forEach((logo, index) => {
+            setTimeout(() => {
+                logo.classList.add('show');
+            }, index * 100); // Delay increases with each logo for staggered effect
+        });
+    }
+
+    // Attach click events to all navigation items
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            hideAllProjects(); // Hide all projects first
+            const targetId = item.getAttribute('data-target');
+            const targetProject = document.getElementById(targetId);
+            showProject(targetProject);
+        });
+    });
+
+    // Initially display the first project
+    const firstProject = projectDetails[0]; // Assuming the first project should be shown by default
+    showProject(firstProject);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            } else {
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.3 // Trigger when 50% of the target is visible
+    });
+
+    const projectsSection = document.querySelector('.projects-section');
+    observer.observe(projectsSection);
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const timelineDates = document.querySelectorAll('.timeline-date');
+    const detailsPanels = document.querySelectorAll('.details-panel');
+    const detailsContainer = document.querySelector('.details-container');
+
+    function hideAllDetails() {
+        detailsPanels.forEach(panel => {
+            panel.classList.remove('active');
+        });
+        detailsContainer.classList.remove('active');
+    }
+
+    function showDetails(detailsId) {
+        hideAllDetails();
+        document.getElementById(detailsId).classList.add('active');
+        detailsContainer.classList.add('active');
+    }
+
+    timelineDates.forEach(date => {
+        date.addEventListener('click', function() {
+            showDetails(date.getAttribute('data-details'));
+        });
     });
 });
 
-const hiddenpopElements = document.querySelectorAll('.hiddenpop');
-hiddenpopElements.forEach((el) => observerHiddenPop.observe(el));
+
+
+
+
+
+
+
 
 
 

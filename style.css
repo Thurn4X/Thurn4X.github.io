@@ -15,6 +15,7 @@
 body{
     font-family: "poppins", sans-serif;
     overflow-x: hidden;
+    
   }
 
 
@@ -119,6 +120,7 @@ main .slideuno{
     height: 100vh;
     width: 100vw;
     
+    
 }
 
 section{
@@ -126,11 +128,13 @@ section{
     place-items: center;
     align-content: center;
     min-height: 100vh;
+    
 }
 
 .parallax{
     pointer-events: none;
     transition: 0.45s cubic-bezier(.2,.49,.32,.99);
+    
 
 
 }
@@ -244,6 +248,7 @@ section{
     top: 0;
     left: 0;
     background: radial-gradient(ellipse at center, rgba(0,0,0,0) 65%, rgba(0,0,0,0.7));
+    
 }
 
 .download_button{
@@ -296,12 +301,14 @@ section{
     min-height: 100vh; /* Ensure it takes at least the viewport height */
     overflow: hidden;
     position: relative;
+    
 }
 
 .scrollable-content {
     flex: 1; /* Allow content to expand and fill remaining space */
     display: flex;
     flex-direction: column;
+    
 }
 
 /* Rest of your styles remain the same */
@@ -315,6 +322,7 @@ section{
     width: 100%;
     height: 100%;
     pointer-events: none; /* Allows mouse events to pass through */
+    
     
 }
 
@@ -330,6 +338,7 @@ section{
     margin-top: 100px;
     margin-bottom: 100px;
     /*background-color: red;*/
+    
 }
 
 .left {
@@ -347,6 +356,7 @@ section{
     padding-top: 0;
     padding-bottom: 0;
     display: block;
+    
 }
 
 .hidden{
@@ -354,12 +364,14 @@ section{
     filter: blur(5px);
     transform: translateX(-100%);
     transition: all 1s;
+    
 }
 
 .show{
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
+    
 }
 
 .logos{
@@ -369,6 +381,7 @@ section{
     justify-content: space-between; /* Add horizontal space between logos */
     left: 50%;
     margin-right: 30px;
+    
 
     
 }
@@ -382,6 +395,7 @@ section{
 
 .cote{
     left: 0;
+    
 }
 
 .more {
@@ -392,6 +406,7 @@ section{
     justify-content: center; /* Center vertically */
     height: 100vh; /* Ensure the section takes up the full viewport height */
     text-align: center; /* Center the text */
+    
 }
 
 
@@ -404,6 +419,7 @@ section{
     border-radius: 50%;
     animation: fadeOut 2s linear forwards;
     z-index: 2000;
+    
   }
   
   @keyframes fadeOut {
@@ -415,29 +431,7 @@ section{
     }
   }
 
-  .index{
-    background-color: #FFFAFA;
-    color: #A5F2F3;
-    margin-top: 3rem;
-  }
-
-  .index-section::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 75%, #FFFAFA 100%);
-    z-index: 998;
-}
-
-.index-section2::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, transparent 0%, #FFFAFA 100%);
-}
-
+  
 .desc{
     pointer-events: auto;
     z-index: 3;
@@ -446,6 +440,7 @@ section{
     align-items: center;
     text-align: center;
     text-transform: uppercase;
+    
 }
 
 
@@ -458,6 +453,7 @@ section{
     font-weight: 800;
     font-size: 8rem;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Adjust the values as needed */
+    
 
 }
 
@@ -467,6 +463,7 @@ section{
 
     margin-top: 10%;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7); /* Adjust the values as needed */
+    
 
 }
 
@@ -475,17 +472,17 @@ section{
     opacity: 0;
     filter: blur(10px);
     transition: all 1s ease;
+    
 }
 
 .hiddenpop.show {
     opacity: 1;
     filter: blur(0);
+    
 }
 
 
-.mainindex{
-    background-color: #FFFAFA;
-}
+
 
 
 .contact-body {
@@ -495,6 +492,7 @@ section{
     min-height: 100vh;
     background: url('img/stars.jpg') no-repeat center center fixed;
     background-size: 110%;
+    
 }
 
 
@@ -507,6 +505,7 @@ section{
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     width: 90%;
     max-width: 500px;
+    
 }
 
 /* The rest of your input and label styles remain the same */
@@ -514,12 +513,14 @@ section{
 
 form {
     display: flex;
+    
     flex-direction: column;
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
+    
     background-color: #fff; /* Light background for input fields */
     color: #333; /* Darker text for readability */
     border: 1px solid #ddd;
@@ -545,10 +546,371 @@ input[type="submit"]:hover {
 
 label {
     margin-bottom: 5px;
+    
     font-size: 16px;
+}
+
+
+/* Styles for common section appearance */
+.section-common {
+    margin: 50px auto; /* Center the section */
+    padding: 50px; /* Uniform padding */
+    border-radius: 10px;
+    background-color: rgba(23, 43, 77, 0.85); /* Semi-transparent dark background */
+    color: #ffffff; /* Text color */
+    max-width: 1200px; /* Sets a max-width for larger screens */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: 100%; /* Ensure full width usage */
+}
+
+/* Additional specific styles for about-me-section and projects-section */
+.about-me-section, .projects-section {
+    /* All styles are inherited from .section-common */
+}
+/* about me section revamp */
+
+.mainindex{
+    background-color: rgba(23, 43, 77, 1); /* Adjust the alpha for transparency */
+}
+
+.about-me-section {
+    opacity: 0; /* Commencez transparent mais pas totalement invisible */
+    transform: translateY(20px); /* Commencez légèrement plus bas */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transition pour les deux propriétés */
+    visibility: hidden; /* Initialement masqué */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(23, 43, 77, 0.85); /* Semi-transparent dark background */
+    padding: 50px; /* Uniform padding */
+    border-radius: 10px;
+    color: #ffffff;
+    margin: 50px auto; /* Center the section with automatic horizontal margins */
+    gap: 30px; /* Adds space between the text and the photo */
+    max-width: 1200px; /* Optional: Sets a max-width for larger screens */
+}
+
+.about-me-section.is-visible {
+    animation: fadeInAnimation 1s ease-out forwards;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        visibility: visible; /* Set to visible at the start of the animation */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Ensure that the .about-me-content does not stretch too wide on larger screens */
+.about-me-content {
+    max-width: calc(100% - 250px); /* Subtract the width of the photo plus some margin */
+    flex: 1; /* Allows the content to fill the available space */
+}
+
+.about-me-section h2,
+.projects-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #64ffda; /* This is the accent color, a bright teal */
+    display: flex; /* Use flexbox to layout the text and the line */
+    align-items: center; /* Aligns the text and line vertically */
+}
+
+/* Ajoutez la ligne après le titre dans les deux sections */
+.about-me-section h2::after,
+.projects-section h2::after {
+    content: '';
+    flex-grow: 1; /* Ensures the line will fill the space to the right */
+    height: 1px;
+    background-color: #64ffda; /* Color of the line */
+    margin-left: 10px; /* Space between the text and the line */
+    transition: width 0.3s ease; /* Transition for any hover effects if needed */
+}
+.about-me-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-me-content ul {
+    columns: 2; /* Creates two columns */
+    -webkit-columns: 2; /* For Safari and older browsers */
+    -moz-columns: 2; /* For Firefox */
+    column-gap: 20px; /* Adjust the gap between columns as needed */
+    padding: 0;
+    margin-bottom: 20px; /* Space below the list */
+    list-style-type: none; /* Removes bullet points */
+
+}
+
+.about-me-content ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    break-inside: avoid-column; /* Prevents items from breaking across columns */
+}
+
+
+.about-me-content ul li::before {
+    content: '▹'; /* Custom bullet point */
+    position: absolute;
+    left: 0;
+    color: #64ffda; /* Match the accent color */
+}
+.photocontainer {
+    animation: fadeIn 1s ease-out forwards;
+    position: relative; /* Sets the positioning context for the absolute elements inside */
+    width: 220px; /* Set the width of the container to fit the image and padding */
+    height: 220px; /* Set the height of the container to fit the image and padding */
+}
+
+.blue-square {
+    position: absolute; /* Positioned relative to its nearest positioned ancestor */
+    top: 10px; /* Padding top inside the container */
+    left: 10px; /* Padding left inside the container */
+    width: 200px; /* Width of the square, adjust based on the desired final size */
+    height: 200px; /* Height of the square, adjust based on the desired final size */
+    background-color: #64ffda; /* Light blue color */
+    z-index: 0; /* Ensures it's behind the image if needed */
+    border-radius: 5px;
+
+}
+.about-me-photo {
+    position: relative; /* Allows absolute positioning relative to the photo */
+    width: 200px; /* Set the width of the photo */
+    height: 200px; /* Set the height of the photo */
+    object-fit: cover; /* Ensures the image covers the area without being distorted */
+    overflow: hidden; /* Ensures nothing goes outside the boundary of the photo */
+    margin: 0 auto; /* Centers the photo if needed */
+    background-color: white; /* In case the image doesn't load, there will be a white background */
+    border-radius: 5px; /* Sets the photo as a square */
+    z-index: 1; /* Ensures the photo stays above the pseudo-element */
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);  /* Légère translation pour l'effet */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* css section 2 */
+.projects-section{
+    opacity: 0; /* Commencez transparent mais pas totalement invisible */
+    transform: translateY(20px); /* Commencez légèrement plus bas */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transition pour les deux propriétés */
+    visibility: hidden; /* Initialement masqué */
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(23, 43, 77, 0.85); /* Semi-transparent dark background */
+    padding: 50px; /* Uniform padding */
+    border-radius: 10px;
+    color: #ffffff;
+    margin: 50px auto; /* Center the section with automatic horizontal margins */
+    gap: 30px; /* Adds space between the text and the photo */
+    max-width: 1200px; /* Optional: Sets a max-width for larger screens */
+}
+
+.projects-section.is-visible {
+    animation: fadeInAnimation 1s ease-out forwards;
+
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible; /* Set to visible as it fades in */
+}
+
+.projects-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #64ffda; /* This is the accent color, a bright teal */
+    display: flex; /* Use flexbox to layout the text and the line */
+    align-items: center; /* Aligns the text and line vertically */
+    width: 100%; /* Ensure the h2 takes full width */
+}
+
+.projects-section h2::after {
+    content: '';
+    flex-grow: 1; /* Ensures the line will fill the space to the right */
+    height: 1px;
+    background-color: #64ffda; /* Color of the line */
+    margin-left: 10px; /* Space between the text and the line */
+    transition: width 0.3s ease; /* Transition for any hover effects if needed */
+}
+
+.project-nav li {
+    list-style-type: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative; /* To position the blue line */
+    transition: background-color 0.3s;
+    margin-left: -20px; /* Shift text to the right to make space for the blue line */
+    padding-left: 30px; /* Add padding to maintain alignment */
+}
+
+.project-nav li.active::before {
+    content: '';
+    position: absolute;
+    left: 0; /* Blue line on the very left */
+    top: 0;
+    bottom: 0;
+    width: 2px; /* Width of the blue line */
+    background-color: #64ffda; /* Light blue color */
+    transition: all 0.3s; /* Smooth transition for the active state change */
+}
+
+
+.project-nav li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.project-nav li.active::before {
+    background-color: #64ffda; /* Light blue color for the active project */
+}
+
+.projects-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* This adds some space between your project nav and the details */
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 50px auto; /* Center the container */
 }
 
 
 
 
-  
+.project-nav {
+    flex: 0 0 200px; /* Set a fixed width for the navigation */
+    margin-right: 20px; /* Optional: if you want some space between the nav and the details */
+}
+    
+.project-details {
+    flex: 1; /* This will make the details section take up the remaining space */
+    min-width: 0;
+    min-height: 200px;
+    display: flex; /* Allows you to use flexbox properties within the details */
+    flex-direction: column; /* Stacks the child elements (each project detail) vertically */
+    max-width: 800px; /* Adjust as needed, or remove if you want it to grow with content */
+}
+
+.project {
+    display: none; /* Hide all projects initially */
+    flex: 1; /* Allows each project detail to grow if needed */
+    padding: 10px; /* Optional: if you want some inner spacing within the details */
+}
+
+.project.active {
+    display: block; /* Only the active project will be displayed */
+    padding: 20px;
+    min-height: 200px;
+}
+
+.skill-logo {
+    height: 70px; /* Adjust size as desired */
+    width: auto; /* Maintain aspect ratio */
+    margin: 5px; /* Add some space between logos */
+    vertical-align: middle; /* Align logos with the surrounding text */
+    padding-left: 30px;
+    opacity: 0; /* Start hidden */
+    transform: translateX(-100%); /* Start from the left */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition for fade-in and slide */
+}
+
+.skill-logo.show {
+    opacity: 1;
+    transform: translateX(0); /* End at normal position */
+}
+
+.project-skills {
+    display: flex;
+    justify-content: center; /* Center logos horizontally */
+    align-items: center; /* Center logos vertically, if needed */
+    flex-wrap: wrap; /* Allow logos to wrap onto the next line on small screens */
+    padding: 10px 0; /* Add some vertical padding around the logos */
+}
+
+.project h3{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #64ffda; /* Accent color */
+}
+
+
+/* section 3 education */
+
+.education-section {
+    color: white;
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px;
+    position: relative;
+}
+
+.timeline-container {
+    display: flex;
+}
+
+.timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-date {
+    cursor: pointer;
+    padding: 10px;
+    border-left: 4px solid #64ffda;
+    margin-bottom: 10px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.details-container {
+    flex-grow: 1;
+    padding-left: 30px; /* Space between timeline and details */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(100%);
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* When active, slide in the details container */
+.details-container.active {
+    opacity: 1;
+    transform: translateX(0);
+    max-height: none; /* Allow it to expand as needed */
+}
+
+/* Details panels */
+.details-panel {
+    display: none;
+}
+
+.details-panel.active {
+    display: block;
+}
+
+
