@@ -66,6 +66,24 @@ timeline.from(
         duration: 1,
     },"<0.1"
 )
+document.addEventListener('DOMContentLoaded', function () {
+    const links = document.querySelectorAll('nav ul li a');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();  // Prevent default anchor click behavior
+            const targetId = this.getAttribute('href');  // Get the href attribute
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',  // Smooth scroll
+                    block: 'start'       // Scroll so that the top of the element is aligned to the top
+                });
+            }
+        });
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver((entries) => {
