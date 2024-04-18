@@ -251,33 +251,6 @@ section{
     
 }
 
-.download_button{
-    z-index: 1000;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    text-decoration: none;
-    color: white;
-    border: 2px solid white;
-    padding: 30px 60px;
-    font-size: large;
-    border-radius: 8px;
-
-    background: transparent;
-}
-
-.download_button:hover{
-    box-shadow: 0 0 20px 0 rgba(255,255,255,1);
-    transition: 0.2s;
-}
-
-.download_button:not(:hover){
-    background: transparent;
-    transition: 0.2s;
-}
-
 
 
 
@@ -710,7 +683,17 @@ label {
 }
 
 /* css section 2 */
+.bigprojectcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+}
 .projects-section{
+    position: relative; /* Needed for absolute positioning inside */
+    padding-bottom: 80px; /* Adjust as needed for space at the bottom */
     opacity: 0; /* Commencez transparent mais pas totalement invisible */
     transform: translateY(20px); /* Commencez légèrement plus bas */
     transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transition pour les deux propriétés */
@@ -796,6 +779,7 @@ label {
     gap: 20px; /* This adds some space between your project nav and the details */
     max-width: 1200px; /* Maximum width of the container */
     margin: 50px auto; /* Center the container */
+    margin-bottom: 20px; /* Add space above the download button */
 }
 
 
@@ -858,14 +842,81 @@ label {
 }
 
 
+.download_button {
+    z-index: 1000;
+    cursor: pointer;
+    text-decoration: none;
+    color: #64ffda;
+    border: 2px solid #64ffda;
+    padding: 15px 30px; /* Adjust padding as needed */
+    font-size: large;
+    border-radius: 8px;
+    background: transparent;
+    display: block; /* Make the link a block to fit the content width */
+    width: max-content; /* Make the width as wide as the content */
+    margin: 0 auto; /* Center the button */
+}
+
+.download_button:hover {
+    box-shadow: 0 0 20px 0 rgba(100, 255, 218, 1);
+    transition: 0.2s;
+}
+
+.download_button:not(:hover) {
+    transition: 0.2s;
+}
+
 /* section 3 education */
+.bigedu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* This will add space between the flex items */
+}
+
 
 .education-section {
     color: white;
     max-width: 1200px;
     margin: auto;
     padding: 50px;
-    position: relative;
+    position: relative;    opacity: 0; /* Commencez transparent */
+    transform: translateY(20px); /* Commencez légèrement plus bas */
+    visibility: hidden; /* Initialement masqué */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transition pour les deux propriétés */
+}
+
+.education-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible; /* Devenir visible lors du scroll */
+}
+
+
+.education-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #64ffda; /* This is the accent color, a bright teal */
+    display: flex; /* Use flexbox to layout the text and the line */
+    align-items: center; /* Aligns the text and line vertically */
+    width: 100%; /* Ensure the h2 takes full width */
+    padding-bottom: 10px;
+}
+
+.education-section h2::after {
+    content: '';
+    flex-grow: 1; /* Ensures the line will fill the space to the right */
+    height: 1px;
+    background-color: #64ffda; /* Color of the line */
+    margin-left: 10px; /* Space between the text and the line */
+    transition: width 0.3s ease; /* Transition for any hover effects if needed */
+    
+}
+
+.education-section h3 {
+    margin-bottom: 10px;
+    color: #64ffda; /* Accent color */
 }
 
 .timeline-container {
@@ -875,26 +926,48 @@ label {
 .timeline {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin-right: 30px; /* Optional: Space between the timeline and the details panel */
+    padding-left: 30px; /* Add padding to maintain alignment */
+
 }
 
 .timeline-date {
     cursor: pointer;
     padding: 10px;
-    border-left: 4px solid #64ffda;
     margin-bottom: 10px;
     position: relative;
     transition: transform 0.3s ease;
+    margin-right: 20px;
 }
+
+.timeline .timeline-date::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    bottom: 50%;
+    width: 1px;
+    background-color: transparent; /* Initialement transparent */
+    transition: background-color 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+}
+
+.timeline .timeline-date.active::before {
+    background-color: #64ffda; /* Couleur pour l'élément actif */
+    top: 0;
+    bottom: 0; /* Ajustement pour que la barre s'étende sur toute la hauteur de l'élément actif */
+}
+
 
 .details-container {
     flex-grow: 1;
-    padding-left: 30px; /* Space between timeline and details */
+    padding-left: 50px; /* Space between timeline and details */
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     transform: translateX(100%);
     max-height: 0;
-    overflow: hidden;
+    overflow: auto;
+    width: calc(100% - 250px); /* Adjust width as needed, subtracting the width of the timeline */
+    overflow: auto; /* Enable scroll if content overflows */
 }
 
 /* When active, slide in the details container */
@@ -904,13 +977,80 @@ label {
     max-height: none; /* Allow it to expand as needed */
 }
 
-/* Details panels */
+
+
 .details-panel {
     display: none;
+    width: 100%; /* Ensure the panel takes up all available width */
+    box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .details-panel.active {
     display: block;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 
+
+
+/* section contact */
+.contact-me-section {
+    background-color: rgba(23, 43, 77, 0.85); /* Semi-transparent dark background */
+    color: white; /* Change to preferred text color */
+    padding: 50px;
+    gap: 30px;
+    text-align: center; /* Center the content */
+}
+
+.contact-me-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #64ffda; /* This is the accent color, a bright teal */
+    display: flex; /* Use flexbox to layout the text and the line */
+    align-items: center; /* Aligns the text and line vertically */
+    width: 100%; /* Ensure the h2 takes full width */
+    padding-bottom: 10px;
+}
+
+.contact-me-section h2::after {
+    content: '';
+    flex-grow: 1; /* Ensures the line will fill the space to the right */
+    height: 1px;
+    background-color: #64ffda; /* Color of the line */
+    margin-left: 10px; /* Space between the text and the line */
+    transition: width 0.3s ease; /* Transition for any hover effects if needed */
+    
+}
+
+
+.contact-information {
+    margin-bottom: 1rem;
+}
+
+.contact-details p, .social-media a {
+    display: block; /* or 'inline-block' if you prefer */
+    margin: 0.5rem 0;
+}
+
+.social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #64ffda; /* or any color of choice */
+    font-size: 24px; /* adjust size as necessary */
+}
+
+.social-media a:hover,
+.social-media a:focus {
+    color: #ffffff; /* color when hovered or focused */
+    text-decoration: none; /* no underline */
+    transform: scale(1.1); /* slight increase in size */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Add responsive design as necessary */

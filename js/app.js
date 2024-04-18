@@ -83,6 +83,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const section = document.querySelector('.about-me-section');
     observer.observe(section);
+
+
+    const firstTimelineDate = document.querySelector('.timeline .timeline-date');
+    const firstDetailsPanel = document.querySelector('.details-container .details-panel');
+
+    // Set the first timeline date as active
+    if (firstTimelineDate) {
+        firstTimelineDate.classList.add('active');
+    }
+
+    // Display the first details panel
+    if (firstDetailsPanel) {
+        firstDetailsPanel.classList.add('active');
+        document.querySelector('.details-container').classList.add('active');
+    }
 });
 
 // js section 2
@@ -176,7 +191,32 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initially display the first project
     const firstProject = projectDetails[0]; // Assuming the first project should be shown by default
     showProject(firstProject);
+
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            } else {
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.3 // La section devient visible quand 30% est visible
+    });
+
+    // Observer les sections about-me et education
+    const aboutMeSection = document.querySelector('.about-me-section');
+    const educationSection = document.querySelector('.education-section');
+    
+    observer.observe(aboutMeSection);
+    observer.observe(educationSection);
+
+    
 });
+
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver(entries => {
@@ -220,6 +260,39 @@ document.addEventListener('DOMContentLoaded', function () {
             showDetails(date.getAttribute('data-details'));
         });
     });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const timelineDates = document.querySelectorAll('.timeline .timeline-date');
+    const detailContainers = document.querySelectorAll('.details-container .details-panel');
+
+    // Fonction pour supprimer la classe 'active' de tous les éléments
+    function removeActiveClasses(elements) {
+        elements.forEach(element => {
+            element.classList.remove('active');
+        });
+    }
+
+    // Fonction pour ajouter la classe 'active' à l'élément cliqué
+    function setActive(element) {
+        removeActiveClasses(timelineDates);
+        removeActiveClasses(detailContainers);
+        element.classList.add('active');
+        document.getElementById(element.dataset.details).classList.add('active');
+    }
+
+    // Attacher l'événement 'click' à chaque date de la timeline
+    timelineDates.forEach(date => {
+        date.addEventListener('click', function() {
+            setActive(date);
+        });
+    });
+
+    // Ajouter la classe 'active' à la première date et à son détail associé
+    if (timelineDates.length > 0 && detailContainers.length > 0) {
+        setActive(timelineDates[0]);
+    }
 });
 
 
